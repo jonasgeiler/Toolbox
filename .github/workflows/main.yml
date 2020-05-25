@@ -9,6 +9,7 @@ jobs:
     steps:
     - name: Setup 🔧
       uses: actions/setup-node@v1.4.2
+    - run: ls
     - name: Install ♻
       run: npm install
     - name: Build 🏗
