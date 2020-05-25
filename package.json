@@ -1,6 +1,6 @@
 {
   "name": "toolbox",
-  "description": "Little website I've made using Svelte and Sapper with various self-made tools I often use",
+  "description": "Little website that I've created using Svelte and Sapper, providing various self-made tools that I use regularly",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
