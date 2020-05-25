@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import ImageCompare from '../../../node_modules/image-compare-viewer';
+	import ImageCompare from '../../../node_modules/image-compare-viewer'; // Can't import using only 'image-compare-viewer'!
 
 	export let leftText = 'Before';
 	export let rightText = 'After';

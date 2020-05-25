@@ -1,6 +1,6 @@
 <script>
-	import Foot from '../components/Footer.svelte';
-	import Nav from '../components/Nav.svelte';
+	import Foot from '../components/layout/Footer.svelte';
+	import Nav from '../components/layout/Nav.svelte';
 
 	//export let segment;
 </script>

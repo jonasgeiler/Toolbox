@@ -2,7 +2,6 @@
 	import Tool from './Tool.svelte';
 
 	const domain = 'https://l.skayo.dev/';
-	const apiKey = '8a8438bc4f3d65147049d62ec8356f99';
 
 	let link = '';
 	let customID = '';
@@ -24,7 +23,7 @@
 
 		const request = new XMLHttpRequest();
 
-		request.open('POST', 'https://l.skayo.dev/api/shorten', true);
+		request.open('POST', domain + 'api/shorten', true);
 		request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		request.setRequestHeader('Authorization', 'Basic YXBpOjhhODQzOGJjNGYzZDY1MTQ3MDQ5ZDYyZWM4MzU2Zjk5');
 		request.responseType = 'json';

@@ -28,7 +28,7 @@
 </style>
 
 <svelte:head>
-	<title>{status}</title>
+	<title>Skayo's Toolbox | Error {status}</title>
 </svelte:head>
 
 <h1>{status}</h1>

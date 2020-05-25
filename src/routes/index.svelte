@@ -15,6 +15,10 @@
 	let showAlert;
 </script>
 
+<svelte:head>
+	<title>Skayo's Toolbox</title>
+</svelte:head>
+
 <div class="uk-grid-medium" uk-grid uk-sortable="handle: .uk-sortable-handle">
 	<Base64EncoderDecoder {copyText} />
 	<TextCounter />

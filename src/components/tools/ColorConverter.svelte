@@ -38,15 +38,17 @@
 		</div>
 
 		<div class="uk-width-expand uk-form-stacked">
-			<div class="uk-margin-small">
-				<label class="uk-form-label" for="color-name">Name</label>
-				<div class="uk-form-controls">
-					<div class="uk-inline uk-width-1-1">
-						<a href="" on:click={copyText(namedColor ? namedColor : 'No Name')} class="uk-form-icon uk-form-icon-flip" uk-icon="copy" uk-tooltip title="Copy"></a>
-						<input on:click={select(nameField)} value={namedColor ? namedColor : 'No Name'} bind:this={nameField} id="color-name" placeholder="dodgerblue" class="uk-input uk-form-small" readonly type="text">
+			{#if namedColor}
+				<div class="uk-margin-small">
+					<label class="uk-form-label" for="color-name">Name</label>
+					<div class="uk-form-controls">
+						<div class="uk-inline uk-width-1-1">
+							<a href="" on:click={copyText(namedColor)} class="uk-form-icon uk-form-icon-flip" uk-icon="copy" uk-tooltip title="Copy"></a>
+							<input on:click={select(nameField)} value={namedColor} bind:this={nameField} id="color-name" placeholder="dodgerblue" class="uk-input uk-form-small" readonly type="text">
+						</div>
 					</div>
 				</div>
-			</div>
+			{/if}
 
 			<div class="uk-margin-small">
 				<label class="uk-form-label" for="hex-color">HEX{#if hasAlpha}8{/if}</label>
@@ -93,10 +95,10 @@
 
 <style lang="scss">
 	.preview-background {
-		background-image:    url(/transparent-background.gif);
-		background-repeat:   repeat;
+		background-image: url(/transparent-background.gif);
+		background-repeat: repeat;
 		background-position: top left;
-		background-color:    #fff;
+		background-color: #fff;
 		min-height: 35px;
 	}
 </style>
