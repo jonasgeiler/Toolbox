@@ -1,0 +1,13 @@
+@import 'theme';
+
+body {
+	background-color: #f7f7f7;
+}
+
+textarea {
+	resize: vertical;
+	min-height: 200px;
+}
+
+@import 'uikit/src/scss/uikit-theme.scss';
+@import 'image-compare-viewer/src/styles/index.scss';
