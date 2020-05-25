@@ -95,7 +95,7 @@
 		</div>
 	</div>
 
-	<button on:click={shorten} class="uk-button uk-button-primary uk-width-1-1">
+	<button on:click={shorten} class="uk-button uk-button-primary uk-margin-small-top uk-width-1-1">
 		{#if shortening}
 			<div uk-spinner="ratio: 0.5"></div>
 		{:else}
