@@ -160,6 +160,8 @@
 		request.responseType = 'json';
 
 		request.onload = function () {
+			generating = false;
+
 			if (this.status === 0 || this.status >= 200 && this.status < 300 || this.status === 304) {
 				const data = this.response;
 
@@ -173,8 +175,6 @@
 			} else {
 				showAlert(this.statusText);
 			}
-
-			generating = false;
 		};
 
 		request.onerror = () => {

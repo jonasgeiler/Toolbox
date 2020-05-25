@@ -8,13 +8,13 @@
 	export let settings = false;
 	export let settingsInfo = false;
 
-	$: titleSlug = title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]+/g, '');
+	$: titleSlug = title.toLowerCase().replace(/[^\s\w\-]+/g, '').replace(/\s+/g, '-');
 
 	let visible = false;
 	onMount(() => visible = true);
 </script>
 
-<div class="{size == 'small' ? 'uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl' : (size == 'medium' ? 'uk-width-1-1 uk-width-1-3@l uk-width-1-2@xl' : 'uk-width-1-2@l')}">
+<div id={titleSlug} class="{size == 'small' ? 'uk-width-1-2@s uk-width-1-3@l uk-width-1-4@xl' : (size == 'medium' ? 'uk-width-1-1 uk-width-1-3@l uk-width-1-2@xl' : 'uk-width-1-2@l')}">
 	{#if visible}
 		<div class="uk-card uk-card-default uk-card-small uk-card-hover" transition:fade>
 			<div class="uk-card-header">
