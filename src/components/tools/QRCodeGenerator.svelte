@@ -8,7 +8,7 @@
 	let ecc = writable('L');
 	let fgcolor = writable('#000');
 	let bgcolor = writable('#fff');
-	let margin = writable(1);
+	let margin = writable(8);
 	let qzone = writable(0);
 	let format = writable('png');
 
