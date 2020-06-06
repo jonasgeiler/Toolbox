@@ -9,11 +9,12 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "ackee-tracker": "^3.3.0",
     "compression": "^1.7.1",
-    "polka": "next",
-    "sirv": "^0.4.0",
     "compressorjs": "^1.0.6",
     "image-compare-viewer": "^1.3.5",
+    "polka": "next",
+    "sirv": "^0.4.0",
     "tinycolor2": "^1.4.1",
     "uikit": "^3.4.2"
   },
