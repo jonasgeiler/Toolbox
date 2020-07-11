@@ -92,7 +92,8 @@
 		},
 	];
 
-	let value = '';
+	let data = '';
+	let textArea;
 
 	$: qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/' +
 	               `?size=${$size}x${$size}` +
@@ -104,17 +105,26 @@
 	               `&margin=${$margin}` +
 	               `&qzone=${$qzone}` +
 	               `&format=${$format}` +
-	               `&data=${value}`;
+	               `&data=${data}`;
+
+	function updateQrData() {
+		clearTimeout(textArea.timeout);
+
+		textArea.timeout = setTimeout(() => {
+			console.log('test');
+			data = textArea.value;
+		}, 1000);
+	}
 </script>
 
 <Tool title="QR-Code Generator" {settings} settingsInfo="http://goqr.me/api/doc/create-qr-code/">
 	<div class="uk-grid-small" uk-grid>
 		<div class="uk-width-expand@s uk-width-1-1">
-			<textarea bind:value class="uk-textarea uk-margin-small-bottom" placeholder="Text, URL, etc..."></textarea>
+			<textarea bind:this={textArea} on:input={updateQrData} class="uk-textarea uk-margin-small-bottom" placeholder="Text, URL, etc..."></textarea>
 			<a href="https://github.com/zxing/zxing/wiki/Barcode-Contents" target="_blank">List of QR-Code Content Standards</a>
 		</div>
 
-		{#if value !== ''}
+		{#if data !== ''}
 			<div class="uk-width-1-4@s uk-width-1-1 uk-text-center">
 				<img src={qrCodeUrl} class="uk-width-1-1 uk-margin-small-bottom" alt="QR-Code">
 				<a href="{qrCodeUrl}&download=1" target="_blank" class="uk-button uk-button-primary uk-button-small uk-width-1-1">Download</a>
