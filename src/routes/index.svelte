@@ -1,4 +1,5 @@
 <script>
+	import DataConverter from '../components/tools/DataConverter.svelte';
 	import CodeFormatter from '../components/tools/CodeFormatter.svelte';
 	import URLShortener from '../components/tools/URLShortener.svelte';
 	import DummyTextGenerator from '../components/tools/DummyTextGenerator.svelte';
@@ -31,6 +32,7 @@
 	<URLShortener {copyText} {showAlert} />
 	<DummyTextGenerator {copyText} />
 	<CodeFormatter {copyText} />
+	<DataConverter {copyText} {showAlert} />
 </div>
 
 <Clipboard bind:copyText />

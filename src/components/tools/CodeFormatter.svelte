@@ -292,7 +292,7 @@
 
 	{#if outputCode !== ''}
 		<div class="uk-width-1-1 uk-flex uk-flex-center uk-margin-small">
-			<span class="uk-width-auto" uk-icon="icon: arrow-down; ratio: 3" uk-tooltip="pos: left" title="Format"></span>
+			<span class="uk-width-auto" uk-icon="icon: arrow-down; ratio: 3" uk-tooltip="pos: left" title="Formatted"></span>
 		</div>
 
 		<div>
