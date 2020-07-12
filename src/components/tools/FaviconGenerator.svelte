@@ -210,7 +210,7 @@
 		{/if}
 	</div>
 
-	<div class="uk-text-meta uk-margin-bottom uk-text-center">Recommended Minimum Size: 310x310 px</div>
+	<div class="uk-text-meta uk-text-center" class:uk-margin-bottom={uploaded}>Recommended Minimum Size: 310x310 px</div>
 
 	{#if uploaded}
 		{#if previewURL !== ''}

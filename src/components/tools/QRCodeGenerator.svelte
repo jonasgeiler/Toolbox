@@ -93,7 +93,8 @@
 	];
 
 	let data = '';
-	let textArea;
+	let timeout;
+	let value;
 
 	$: qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/' +
 	               `?size=${$size}x${$size}` +
@@ -108,11 +109,10 @@
 	               `&data=${data}`;
 
 	function updateQrData() {
-		clearTimeout(textArea.timeout);
+		clearTimeout(timeout);
 
-		textArea.timeout = setTimeout(() => {
-			console.log('test');
-			data = textArea.value;
+		timeout = setTimeout(() => {
+			data = value;
 		}, 1000);
 	}
 </script>
@@ -120,7 +120,7 @@
 <Tool title="QR-Code Generator" {settings} settingsInfo="http://goqr.me/api/doc/create-qr-code/">
 	<div class="uk-grid-small" uk-grid>
 		<div class="uk-width-expand@s uk-width-1-1">
-			<textarea bind:this={textArea} on:input={updateQrData} class="uk-textarea uk-margin-small-bottom" placeholder="Text, URL, etc..."></textarea>
+			<textarea bind:value on:input={updateQrData} class="uk-textarea uk-margin-small-bottom" placeholder="Text, URL, etc..."></textarea>
 			<a href="https://github.com/zxing/zxing/wiki/Barcode-Contents" target="_blank">List of QR-Code Content Standards</a>
 		</div>
 

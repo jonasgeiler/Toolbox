@@ -45,7 +45,7 @@
 											{#each settings as setting, id}
 												<div class="uk-margin">
 													{#if setting.type !== 'checkbox'}
-														<label class="uk-form-label">{setting.name}</label>
+														<label class="uk-form-label">{@html setting.name}</label>
 													{/if}
 
 													{#if setting.type === 'text'}
@@ -54,7 +54,7 @@
 														</div>
 													{:else if setting.type === 'number'}
 														<div class="uk-form-controls">
-															<input value={get(setting.bind)} on:input={e => setting.bind.set(e.target.value)} type="number" class="uk-input" min={setting.min} max={setting.max} placeholder={setting.placeholder}>
+															<input value={get(setting.bind)} on:input={e => setting.bind.set(parseInt(e.target.value))} type="number" class="uk-input" min={setting.min} max={setting.max} placeholder={setting.placeholder}>
 														</div>
 													{:else if setting.type === 'select'}
 														<div class="uk-form-controls">
@@ -66,8 +66,7 @@
 														</div>
 													{:else if setting.type === 'checkbox'}
 														<div class="uk-form-controls">
-															<label><input class="uk-checkbox" type="checkbox" on:change={e => setting.bind.set(e.target.checked)} checked={get(setting.bind)}> {setting.name}
-															</label>
+															<label><input class="uk-checkbox" type="checkbox" on:change={e => setting.bind.set(e.target.checked)} checked={get(setting.bind)}> {@html setting.name}</label>
 														</div>
 													{/if}
 												</div>

@@ -9,5 +9,10 @@ textarea {
 	min-height: 200px;
 }
 
+.sk-monospace {
+	font-family: $base-code-font-family !important;
+}
+
 @import 'uikit/src/scss/uikit-theme.scss';
 @import 'image-compare-viewer/src/styles/index.scss';
+@import 'highlight.js/scss/atom-one-dark';
