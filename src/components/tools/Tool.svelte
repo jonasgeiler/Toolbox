@@ -79,7 +79,7 @@
 							</div>
 						{/if}
 
-						<a href="" class="uk-sortable-handle uk-icon-link" title="Move" uk-tooltip uk-icon="move"></a>
+						<a href="" class="uk-sortable-handle uk-icon-link uk-visible@m" title="Move" uk-tooltip uk-icon="move"></a>
 					</div>
 				</div>
 			</div>
