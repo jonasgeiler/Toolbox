@@ -7,7 +7,7 @@ UIkit.use(Icons);
 
 ackeeTracker.create({
 	server: 'https://analytics.skayo.dev',
-	domainId: '4a712c06-1eee-4202-bcc1-f7bf0edf4d83'
+	domainId: 'b9234509-bacd-4623-b4db-af3f12fee5da'
 }).record()
 
 sapper.start({
