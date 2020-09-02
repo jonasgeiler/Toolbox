@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@prettier/plugin-php": "^0.14.2",
-    "ackee-tracker": "^3.3.0",
     "compression": "^1.7.1",
     "compressorjs": "^1.0.6",
     "highlight.js": "^10.1.1",
