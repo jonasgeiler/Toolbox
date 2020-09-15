@@ -1,5 +1,4 @@
 <script>
-	import { writable } from 'svelte/store';
 	import Tool from './Tool.svelte';
 	import CodeBlock from '../misc/CodeBlock.svelte';
 

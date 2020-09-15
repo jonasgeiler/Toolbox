@@ -17,10 +17,9 @@
 	hljs.registerLanguage('plaintext', hljs_plain);
 
 	export let code;
-	export let language;
+	export let language = 'plaintext';
 
 	$: highlighted = hljs.highlight(language, code, true).value;
-
 </script>
 
 <pre class="uk-margin-remove uk-padding-remove">
