@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-	<title>Skayo's Toolbox</title>
+	<title>Toolbox, by Skayo</title>
 </svelte:head>
 
 <div class="uk-grid-medium" uk-grid uk-sortable="handle: .uk-sortable-handle">
