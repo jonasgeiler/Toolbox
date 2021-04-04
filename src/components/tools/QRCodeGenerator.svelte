@@ -3,13 +3,11 @@
 	import Tool from './Tool.svelte';
 
 	let size = writable(200);
-	let charsetSource = writable('UTF-8');
-	let charsetTarget = writable('UTF-8');
+	let encoding = writable('UTF-8');
 	let ecc = writable('L');
 	let fgcolor = writable('#000');
 	let bgcolor = writable('#fff');
-	let margin = writable(8);
-	let qzone = writable(0);
+	let margin = writable(10);
 	let format = writable('png');
 
 	const settings = [
@@ -23,42 +21,33 @@
 		},
 		{
 			type:    'select',
-			name:    'Source Charset',
+			name:    'Encoding',
 			options: [
 				{ name: 'UTF-8', value: 'UTF-8' },
 				{ name: 'ISO-8859-1', value: 'ISO-8859-1' },
 			],
-			bind:    charsetSource,
+			bind:    encoding,
 		},
 		{
 			type:    'select',
-			name:    'Target Charset',
-			options: [
-				{ name: 'UTF-8', value: 'UTF-8' },
-				{ name: 'ISO-8859-1', value: 'ISO-8859-1' },
-			],
-			bind:    charsetTarget,
-		},
-		{
-			type:    'select',
-			name:    'Error Correction Code',
+			name:    'Error Correction Level',
 			options: [
 				{ name: 'Low', value: 'L' },
 				{ name: 'Middle', value: 'M' },
-				{ name: 'Quality', value: 'Q' },
+				{ name: 'Quartile', value: 'Q' },
 				{ name: 'High', value: 'H' },
 			],
 			bind:    ecc,
 		},
 		{
 			type:        'text',
-			name:        'Foreground Color',
+			name:        'Foreground Color (Hexadecimal)',
 			placeholder: 'f.e. #000',
 			bind:        fgcolor,
 		},
 		{
 			type:        'text',
-			name:        'Background Color',
+			name:        'Background Color (Hexadecimal)',
 			placeholder: 'f.e. #fff',
 			bind:        bgcolor,
 		},
@@ -71,22 +60,13 @@
 			max:         50,
 		},
 		{
-			type:        'number',
-			name:        'Quiet Zone (px)',
-			placeholder: 'f.e. 5',
-			bind:        qzone,
-			min:         0,
-			max:         100,
-		},
-		{
 			type:    'select',
 			name:    'File Format',
 			options: [
 				{ name: 'PNG', value: 'png' },
+				{ name: 'JPEG', value: 'jpg' },
 				{ name: 'GIF', value: 'gif' },
-				{ name: 'JPG', value: 'jpg' },
-				{ name: 'SVG', value: 'svg' },
-				{ name: 'EPS', value: 'eps' },
+				{ name: 'WEBP', value: 'webp' },
 			],
 			bind:    format,
 		},
@@ -96,17 +76,15 @@
 	let timeout;
 	let value;
 
-	$: qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/' +
-	               `?size=${$size}x${$size}` +
-	               `&charset-source=${$charsetSource}` +
-	               `&charset-target=${$charsetTarget}` +
-	               `&ecc=${$ecc}` +
-	               `&color=${$fgcolor.replace('#', '')}` +
-	               `&bgcolor=${$bgcolor.replace('#', '')}` +
-	               `&margin=${$margin}` +
-	               `&qzone=${$qzone}` +
-	               `&format=${$format}` +
-	               `&data=${data}`;
+	$: qrCodeUrl = 'https://mage.skayo.dev/qr' +
+	               `/${$size}` +
+	               `/${$bgcolor.replace('#', '')}` +
+	               `/${$fgcolor.replace('#', '')}` +
+	               `/${$margin}` +
+	               `/${$ecc}` +
+	               `/${$encoding}` +
+	               `.${$format}` +
+	               `?${data}`;
 
 	function updateQrData() {
 		clearTimeout(timeout);
@@ -127,7 +105,7 @@
 		{#if data !== ''}
 			<div class="uk-width-1-4@s uk-width-1-1 uk-text-center">
 				<img src={qrCodeUrl} class="uk-width-1-1 uk-margin-small-bottom" alt="QR-Code">
-				<a href="{qrCodeUrl}&download=1" target="_blank" class="uk-button uk-button-primary uk-button-small uk-width-1-1">Download</a>
+				<a href="{qrCodeUrl}" download="qrcode.png" target="_blank" class="uk-button uk-button-primary uk-button-small uk-width-1-1">Download</a>
 			</div>
 		{/if}
 	</div>
